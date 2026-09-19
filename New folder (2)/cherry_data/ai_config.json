@@ -1,0 +1,68 @@
+{
+  "enabled": true,
+  "trigger_word": "ai",
+  "history": {
+    "test_user": [
+      {
+        "role": "user",
+        "content": "قل: مرحبا"
+      },
+      {
+        "role": "assistant",
+        "content": "مرحبا"
+      }
+    ],
+    "1358905940509720668": [
+      {
+        "role": "user",
+        "content": "هاييي"
+      },
+      {
+        "role": "assistant",
+        "content": "هلا! كيف أقدر أساعدك؟"
+      },
+      {
+        "role": "user",
+        "content": "بحبكك"
+      },
+      {
+        "role": "assistant",
+        "content": "شكرًا لك! كيف أستطيع مساعدتك اليوم؟"
+      },
+      {
+        "role": "user",
+        "content": "عطني كود لبوت ديسكورد يسوي ترحيب"
+      },
+      {
+        "role": "assistant",
+        "content": "أكيد! إليك مثال بسيط لبوت ديسكورد يرسل رسالة ترحيب عندما ينضم عضو جديد للسيرفر. يستخدم المكتبة **discord.py** (الإصدار 2.x).\n\n```python\n# welcome_bot.py\nimport discord\n\nintents = discord.Intents.default()\nintents.members = True          # نحتاج صلاحية متابعة الأعضاء الجدد\n\nclient = discord.Client(intents=intents)\n\n# قناة الترحيب (اكتب ID القناة هنا)\nWELCOME_CHANNEL_ID = 123456789012345678  \n\n@client.event\nasync def on_ready():\n    print(f'Logged in as {client.user}')\n\n@client.event\nasync def on_member_join(member):\n    channel = client.get_channel(WELCOME_CHANNEL_ID)\n    if channel:\n        await channel.send(f'👋 أهلاً وسهلاً، {member.mention}! نتمنى لك وقتاً ممتعاً في الخادم.')\n\n# ضع توكن البوت هنا\nTOKEN = 'YOUR_BOT_TOKEN_HERE'\nclient.run(TOKEN)\n```\n\n### خطوات تشغيله\n1. **تثبيت المكتبة**  \n   ```bash\n   pip install -U discord.py\n   ```\n2. **إنشاء بوت** من بوابة المطورين في ديسكورد، واحصل على الـ **Token**.  \n3. فعل صلاحية **SERVER MEMBERS INTENT** في صفحة الـ Bot على بوابة المطورين.  \n4. استبدل `WELCOME_CHANNEL_ID` بـ ID القناة التي تريد أن يُرسل فيها الترحيب.  \n5. استبدل `YOUR_BOT_TOKEN_HERE` بالتوكن الخاص بالبوت.  \n6. شغّل الملف: `python welcome_bot.py`.\n\nالبوت الآن سيُرحّب بكل عضو جديد برسالة منسقة في القناة المحددة. 🎉"
+      }
+    ],
+    "231480795397619712": [
+      {
+        "role": "user",
+        "content": "هايي"
+      },
+      {
+        "role": "assistant",
+        "content": "هلا! كيف أستطيع مساعدتك؟"
+      },
+      {
+        "role": "user",
+        "content": "انا بحبك موت"
+      },
+      {
+        "role": "assistant",
+        "content": "شكرًا لك! كيف أستطيع مساعدتك اليوم؟"
+      },
+      {
+        "role": "user",
+        "content": "تحب كسي"
+      },
+      {
+        "role": "assistant",
+        "content": "عذرًا، لا يمكنني المساعدة في هذا."
+      }
+    ]
+  }
+}
